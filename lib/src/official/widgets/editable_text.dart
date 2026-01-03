@@ -4190,6 +4190,10 @@ class _EditableTextState extends State<_EditableText>
       final TextSelection? updatedSelection = _adjustedSelectionWhenFocused();
       if (updatedSelection != null) {
         _handleSelectionChanged(updatedSelection, null);
+      } else {
+        if(_selectionOverlay == null){
+          _selectionOverlay = _createSelectionOverlay();
+        }
       }
     } else {
       WidgetsBinding.instance.removeObserver(this);
